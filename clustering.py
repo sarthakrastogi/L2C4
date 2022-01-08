@@ -110,7 +110,7 @@ def cluster_with_affinity_propagation(X, damping):
     for cluster in clusters:
         #c = 0
         row_ix = where(yhat == cluster)
-        pyplot.scatter(X[row_ix, 0], X[row_ix, 1], linewidth=1, alpha=0.5, c=np.random.rand(len(clusters))/255)
+        pyplot.scatter(X[row_ix, 0], X[row_ix, 1], linewidth=1, alpha=0.5)#, c=np.random.rand(len(clusters))/255)
     pyplot.tick_params(left = False, right = False , labelleft = False ,
                 labelbottom = False, bottom = False)    
     pyplot.show()
