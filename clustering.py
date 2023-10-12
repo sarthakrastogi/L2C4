@@ -102,17 +102,15 @@ def scatter_plot_aff(model, X):
     yhat = model.fit_predict(X)
     clusters = unique(yhat)
     from matplotlib.cm import get_cmap
-    colors = get_cmap("tab10").colors + get_cmap("Dark2").colors + get_cmap("tab10").colors  # type: list
+    colors = get_cmap("Set3").colors + get_cmap("Pastel1").colors + get_cmap("Pastel2").colors  # type: list
     i = 0
     
     from matplotlib.axes._axes import _log as matplotlib_axes_logger
     matplotlib_axes_logger.setLevel('ERROR')
     
-    #pyplot.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)])
-    
     for cluster in clusters:
         row_ix = where(yhat == cluster)
-        try: pyplot.scatter(X[row_ix, 0], X[row_ix, 1], c=colors[i])#.reshape(1,-1)) #, linewidth=1, alpha=0.5, c=np.random.rand(len(clusters))/255)
+        try: pyplot.scatter(X[row_ix, 0], X[row_ix, 1], c=colors[i])#.reshape(1,-1))       #, linewidth=1, alpha=0.5, c=np.random.rand(len(clusters))/255)
         except IndexError: break
         i += 1
     #pyplot.tick_params(left = False, right = False , labelleft = False, labelbottom = False, bottom = False)
@@ -130,8 +128,7 @@ def scatter_plot_rest(model, X, n):
     yhat = model.fit_predict(X)
     clusters = unique(yhat)
     from matplotlib.cm import get_cmap
-    colors = get_cmap("tab10").colors + get_cmap("Dark2").colors + get_cmap("tab10").colors  # type: list
-    #colors = get_cmap("Set3").colors + get_cmap("Pastel1").colors + get_cmap("Pastel2").colors  # type: list
+    colors = get_cmap("Set3").colors + get_cmap("Pastel1").colors + get_cmap("Pastel2").colors  # type: list
     i = 0
     
     from matplotlib.axes._axes import _log as matplotlib_axes_logger
